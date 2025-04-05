@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Deepfake Detection Result</title>
+    <style>
+        .result {
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        .real {
+            color: green;
+        }
+        .deepfake {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Prediction Result</h1>
+
+    <p class="result">
+        Prediction:
+        <span class="{{ 'real' if prediction == 'REAL' else 'deepfake' }}">{{ prediction }}</span>
+    </p>
+
+    <p><strong>Confidence:</strong> {{ confidence }}%</p>
+
+    <h3>Uploaded Image:</h3>
+    <img src="{{ url_for('static', filename=filename) }}" width="300" alt="Uploaded Image">
+</body>
+</html>
